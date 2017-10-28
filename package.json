@@ -4,15 +4,15 @@
   "description": "A web based chat application",
   "main": "index.js",
   "scripts": {
-    "start":"node sever/server.js",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shahi9935/chat-app.git"
   },
-  "engines":{
-    "node":"8.6.0"
+  "engines": {
+    "node": "8.6.0"
   },
   "author": "SHAHI",
   "license": "ISC",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Shahi9935/chat-app#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
   }
 }
