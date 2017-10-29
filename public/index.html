@@ -2,16 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-<p>Welcome to SHAHI's chat app</p>
-<ol id='messages'>
+<body class="chat">
+  <div class="chat__sidebar">
+<h3>Currently</h3>
+<div id="users">
+</div>
+  </div>
+<div class="chat__main">
+<ol id='messages' class="chat__messages">
 </ol>
+<div class="chat__footer">
 <form id="message-form">
-  <input name="message" type="text" placeholder="Your Message here"/>
+  <input name="message" type="text" placeholder="Your Message here" autofocus autocomplete="off"/>
   <button>Send</button>
 </form>
 <button id="send-location">Send location</button>
+</div>
+</div>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/libs/jquery.min.js"></script>
 <script src="/js/index.js"></script>
