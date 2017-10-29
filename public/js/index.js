@@ -9,3 +9,9 @@ socket.on('disconnect',function(){
 socket.on('newMessage',function(message){
   console.log('New Message',message);
 });
+socket.emit('createMessage',{
+  from:'Bubba',
+  text:'Run Forest run'
+},function(data){
+  console.log(`${data}`);
+});
