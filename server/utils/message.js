@@ -8,12 +8,13 @@ var generateMessage =(from,text)=>{
   };
 };
 
-var generateLocationMessage =(from,lat,long)=>{
+var generateLocationMessage =(from,lat,long,name)=>{
 
   return {
     from,
     url:`https://www.google.com/maps?q=${lat},${long}`,
-    createdAt:moment().valueOf()
+    createdAt:moment().valueOf(),
+    name
   };
 };
 
