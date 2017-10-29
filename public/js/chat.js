@@ -15,10 +15,32 @@ messages.scrollTop(sH);
 
 socket.on('connect',function(){
   console.log('Connected to server');
+  var params = jQuery.deparam(window.location.search);
+  socket.emit('join',params,function(err){
+    if(err){
+      alert(err);
+      window.location.href='/';
+      console.log(err);
+    }
+    else{
+      console.log('Awesome');
+    }
+  });
 });
 socket.on('disconnect',function(){
   console.log('User was disconnected');
 });
+
+socket.on('updateUserList',function(users){
+  var ol =jQuery('<ol></ol>');
+
+  users.forEach(function(user){
+    ol.append(jQuery('<li></li>').text(user));
+  });
+  jQuery('#users').html(ol);
+  console.log('Users list',users);
+});
+
 socket.on('newMessage',function(message){
   var time = moment(message.createdAt).format('h:mm a')
   var template= jQuery('#message-template').html();
