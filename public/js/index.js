@@ -23,9 +23,6 @@ socket.on('newLocationMessage',function(message){
   li.text(`${message.from} ${time}:`);
   li.append(a);
   jQuery('#messages').append(li);
-  var img = new Image();
-    img.src = message.urlImg;
-  jQuery('#messages').append(img);
 });
 
 var messageTextBox = jQuery('[name=message]');
