@@ -7,20 +7,25 @@ socket.on('disconnect',function(){
   console.log('User was disconnected');
 });
 socket.on('newMessage',function(message){
+  var time = moment(message.createdAt).format('h:mm a')
   console.log('New Message',message);
   var li =jQuery('<li></li>');
-  li.text(`${message.from}:${message.text}`);
+  li.text(`${message.from} ${time}:${message.text}`);
   jQuery('#messages').append(li);
 });
 
 socket.on('newLocationMessage',function(message){
+  var time = moment(message.createdAt).format('h:mm a')
   console.log('New Location Message',message);
   var li =jQuery('<li></li>');
   var a = jQuery('<a target="_blank">My Current Location</a>');
   a.attr('href',message.url);
-  li.text(`${message.from}:`);
+  li.text(`${message.from} ${time}:`);
   li.append(a);
   jQuery('#messages').append(li);
+  var img = new Image();
+    img.src = message.urlImg;
+  jQuery('#messages').append(img);
 });
 
 var messageTextBox = jQuery('[name=message]');
